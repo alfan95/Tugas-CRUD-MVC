@@ -1,0 +1,43 @@
+﻿@model TugasCrud.Models.Funding
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Funding</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Account_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Customer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Customer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Funding }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

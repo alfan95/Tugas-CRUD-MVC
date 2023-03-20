@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KopinakiModelStoreContainer" CdmEntityContainer="KopinakiEntities">
+    <EntitySetMapping Name="Agunans">
+      <EntityTypeMapping TypeName="KopinakiModel.Agunan">
+        <MappingFragment StoreEntitySet="Agunan">
+          <ScalarProperty Name="Agunan_ID" ColumnName="Agunan_ID" />
+          <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+          <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="KopinakiModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spCollectLendingFundingSum" FunctionName="KopinakiModel.Store.spCollectLendingFundingSum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="KopinakiModel.spCollectLendingFundingSum_Result">
+          <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Funding_Balance" ColumnName="Funding Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Fundings">
+      <EntityTypeMapping TypeName="KopinakiModel.Funding">
+        <MappingFragment StoreEntitySet="Funding">
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
+          <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+          <ScalarProperty Name="ID_Funding" ColumnName="ID_Funding" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lendings">
+      <EntityTypeMapping TypeName="KopinakiModel.Lending">
+        <MappingFragment StoreEntitySet="Lending">
+          <ScalarProperty Name="Plafond" ColumnName="Plafond" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
+          <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+          <ScalarProperty Name="ID_Lending" ColumnName="ID_Lending" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

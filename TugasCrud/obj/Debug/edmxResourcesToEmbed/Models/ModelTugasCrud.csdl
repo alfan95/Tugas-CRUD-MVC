@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KopinakiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agunan">
+    <Key>
+      <PropertyRef Name="Agunan_ID" />
+    </Key>
+    <Property Name="Agunan_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Account_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID_Customer" />
+    </Key>
+    <Property Name="ID_Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="KopinakiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agunans" EntityType="Self.Agunan" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <FunctionImport Name="spCollectLendingFundingSum" ReturnType="Collection(KopinakiModel.spCollectLendingFundingSum_Result)" />
+    <EntitySet Name="Fundings" EntityType="KopinakiModel.Funding" />
+    <EntitySet Name="Lendings" EntityType="KopinakiModel.Lending" />
+  </EntityContainer>
+  <ComplexType Name="spCollectLendingFundingSum_Result">
+    <Property Type="String" Name="ID_Customer" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Column1" Nullable="true" />
+    <Property Type="Int32" Name="Funding_Balance" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Funding">
+    <Key>
+      <PropertyRef Name="ID_Funding" />
+    </Key>
+    <Property Name="ID_Funding" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Customer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Balance" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Lending">
+    <Key>
+      <PropertyRef Name="ID_Lending" />
+    </Key>
+    <Property Name="ID_Lending" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account_No" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Customer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Balance" Type="Int32" />
+    <Property Name="Plafond" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

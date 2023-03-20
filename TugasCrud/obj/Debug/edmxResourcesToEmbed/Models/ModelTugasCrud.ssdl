@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KopinakiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agunan">
+    <Key>
+      <PropertyRef Name="Agunan_ID" />
+    </Key>
+    <Property Name="Agunan_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Account_No" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Customer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amount" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID_Customer" />
+    </Key>
+    <Property Name="ID_Customer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Funding">
+    <Key>
+      <PropertyRef Name="ID_Funding" />
+    </Key>
+    <Property Name="ID_Funding" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Account_No" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Customer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Balance" Type="int" />
+  </EntityType>
+  <EntityType Name="Lending">
+    <Key>
+      <PropertyRef Name="ID_Lending" />
+    </Key>
+    <Property Name="ID_Lending" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Account_No" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Customer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Balance" Type="int" />
+    <Property Name="Plafond" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="spCollectLendingFundingSum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="KopinakiModelStoreContainer">
+    <EntitySet Name="Agunan" EntityType="Self.Agunan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Funding" EntityType="Self.Funding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lending" EntityType="Self.Lending" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

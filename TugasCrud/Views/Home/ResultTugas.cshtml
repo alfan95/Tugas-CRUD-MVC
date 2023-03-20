@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ResultTugas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ResultTugas</h2>
+
+<table id="table_result" class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Customer Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Lending</th>
+            <th>Funding</th>
+            <th>Agunan</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in ViewBag.ColData)
+        {
+            <tr>
+                <td>@item.CustomerId</td>
+                <td>@item.Name</td>
+                <td>@item.Address</td>
+                <td>@item.LendingBalance</td>
+                <td>@item.FundingBalance</td>
+                <td>@item.Agunan</td>
+            </tr>
+        }
+    </tbody>
+</table>

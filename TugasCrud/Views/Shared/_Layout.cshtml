@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="~/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="../assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src="~/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+    <script src="~/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+    <script src="~/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/assets/js/demo/table-manage-buttons.demo.min.js"></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $('#table_result').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    { extend: 'csv', className: 'btn-sm' },
+                    { extend: 'excel', className: 'btn-sm' },
+                ],
+                responsive: true
+            });
+        });
+    </script>
+
+</body>
+</html>
